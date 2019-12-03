@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Guesser</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <h1>NUMBERGUESSER</h1>
+      <div class="sub-header">
+        <div class="left-line"></div>
+        <p>ULTIMATE CHALLENGER EDITION</p>
+      </div>
+    </header>
+    <main>
+      <div class="left-column">
+        <section class="set-range-form">
+          <h2>Set Range</h2>
+          <form>
+            <label for="min-range">Min Range</label>
+            <input type="text" name="min-range">
+          </form>
+          <form>
+            <label for="max-range">Max Range</label>
+            <input type="text" name="max-range">
+          </form>
+          <button class="update-button">UPDATE</button>
+        </section>
+        <section class="challenger-guess-form">
+          <p>The Current Range is 1 to 100</p>
+          <h2>Challenger 1</h2>
+          <form>
+            <label for="name">Name</label>
+            <input type="text" name="name">
+          </form>
+          <form>
+            <label for="guess">Guess</label>
+            <input type="text" name="guess">
+          </form>
+          <h2>Challenger 2</h2>
+          <form>
+            <label for="name">Name</label>
+            <input type="text" name="name">
+          </form>
+          <form>
+            <label for="guess">Guess</label>
+            <input type="text" name="guess">
+          </form>
+          <button class="submit-guess">SUBMIT GUESS</button>
+          <button class="reset-game">RESET GAME</button>
+          <button class="clear-form">CLEAR FORM</button>
+        </section>
+        <section class="latest-guess-output">
+          <h2>Latest Guess</h2>
+          <div class="challenger-1-guess">
+            <h3>Challenger 1 Name</h3>
+            <p>current guess</p>
+            <p>no guesses yet!</p>
+          </div>
+          <div class="challenger-2-guess">
+            <h3>Challenger 2 Name</h3>
+            <p>current guess</p>
+            <p>no guesses yet!</p>
+          </div>
+        </section>
+      </div>
+      <div class="right-column">
+      </div>
+    </main>
+  </body>
+</html>
