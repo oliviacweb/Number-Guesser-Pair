@@ -18,15 +18,17 @@
       <div class="left-column">
         <section class="set-range-form">
           <h2>Set Range</h2>
-          <form>
-            <label for="min-range">Min Range</label>
-            <input type="text" name="min-range">
+          <form class="min-max-ranges">
+            <div class="min-range-wrapper">
+              <label for="min-range">Min Range</label>
+              <input id="min-range-input" type="text" name="min-range">
+            </div>
+            <div class="max-range-wrapper">
+              <label for="max-range">Max Range</label>
+              <input id="max-range-input" type="text" name="max-range">
+            </div>
+            <button class="update-button">UPDATE</button>
           </form>
-          <form>
-            <label for="max-range">Max Range</label>
-            <input type="text" name="max-range">
-          </form>
-          <button class="update-button">UPDATE</button>
         </section>
         <section class="challenger-guess-form">
           <p>The Current Range is 1 to 100</p>
