@@ -31,26 +31,32 @@
         <section class="challenger-guess-form">
           <p>The Current Range is 1 to 100</p>
           <h2>Challenger 1</h2>
-          <form>
+          <form class="horizontal-formatting">
+           <div class="vertical-formatting">
             <label for="name">Name</label>
             <input type="text" name="name">
-          </form>
-          <form>
+           </div>
+           <div class="vertical-formatting">
             <label for="guess">Guess</label>
             <input type="text" name="guess">
+           </div>
           </form>
           <h2>Challenger 2</h2>
-          <form>
+          <form class="horizontal-formatting">
+           <div class="vertical-formatting">
             <label for="name">Name</label>
             <input type="text" name="name">
-          </form>
-          <form>
+          </div>
+           <div class="vertical-formatting">
             <label for="guess">Guess</label>
             <input type="text" name="guess">
+          </div>
           </form>
-          <button class="submit-guess">SUBMIT GUESS</button>
-          <button class="reset-game">RESET GAME</button>
-          <button class="clear-form">CLEAR FORM</button>
+           <div class="horizontal-formatting challenger-buttons">
+            <button class="submit-guess">SUBMIT GUESS</button>
+            <button class="reset-game">RESET GAME</button>
+            <button class="clear-form">CLEAR FORM</button>
+           </div>
         </section>
         <section class="latest-guess-output">
           <h2>Latest Guess</h2>

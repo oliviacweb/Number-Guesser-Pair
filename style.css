@@ -3,7 +3,7 @@
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
-}
+  }
 
 header {
   background-color: #404041;
@@ -39,7 +39,6 @@ main {
   flex-direction: column;
   width: 50%;
   height: 100vh;
-  border: solid 4px red;
   background-color: #f7f7f7;
 }
 
@@ -58,7 +57,13 @@ main {
 }
 
 .challenger-guess-form {
-  border: 4px solid green;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  background-color: white;
+  border: 2px solid #EEEEEE;
+  padding: 8px;
+  flex-wrap: wrap;
   flex: 3;
 
 }
@@ -94,6 +99,17 @@ main {
   justify-content: space-between;
 
 }
+
+
+.horizontal-formatting {
+ display: flex;
+}
+
+.vertical-formatting{
+  display: flex;
+  flex-direction: column;
+}
+
 
 .challenger-1-guess {
   align-self: center;
