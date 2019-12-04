@@ -120,6 +120,15 @@ main {
   align-self: center;
 }
 
+.range-top,
+.range-bottom {
+    display: inline-block;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    height: 4px;
+    padding-bottom: 19px;
+}
+
 .right-column {
   width: 50%;
   height: 100vh;
