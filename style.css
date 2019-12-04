@@ -162,11 +162,33 @@ label {
 
 .horizontal-formatting {
  display: flex;
-}
+ }
 
 .vertical-formatting{
   display: flex;
   flex-direction: column;
+}
+
+.name-input {
+  height: 35px;
+  width: 390px;
+}
+
+.guess-input {
+  height: 35px;
+  width: 245px;
+}
+
+.range {
+  margin-bottom: 15px;
+}
+
+.guess-form {
+  margin-left: 3%;
+}
+
+.challenger {
+  margin-bottom: 30px;
 }
 
 
@@ -197,6 +219,8 @@ label {
     height: 4px;
     padding-bottom: 19px;
 }
+
+
 
 .right-column {
   width: 50%;
