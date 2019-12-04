@@ -8,25 +8,28 @@
   </head>
   <body>
     <header>
-      <h1>NUMBERGUESSER</h1>
+      <h1>NUMBER<span>GUESSER</span></h1>
       <div class="sub-header">
-        <div class="left-line"></div>
+        <hr>
         <p>ULTIMATE CHALLENGER EDITION</p>
+        <hr>
       </div>
     </header>
     <main>
       <div class="left-column">
         <section class="set-range-form">
           <h2>Set Range</h2>
-          <form>
-            <label for="min-range">Min Range</label>
-            <input type="text" name="min-range">
+          <form class="min-max-ranges">
+            <div class="min-range-wrapper">
+              <label for="min-range">Min Range</label>
+              <input id="min-range-input" type="text" name="min-range">
+            </div>
+            <div class="max-range-wrapper">
+              <label for="max-range">Max Range</label>
+              <input id="max-range-input" type="text" name="max-range">
+            </div>
+            <button class="update-button">UPDATE</button>
           </form>
-          <form>
-            <label for="max-range">Max Range</label>
-            <input type="text" name="max-range">
-          </form>
-          <button class="update-button">UPDATE</button>
         </section>
         <section class="challenger-guess-form">
           <p>The Current Range is 1 to 100</p>
@@ -54,15 +57,20 @@
         </section>
         <section class="latest-guess-output">
           <h2>Latest Guess</h2>
-          <div class="challenger-1-guess">
-            <h3>Challenger 1 Name</h3>
-            <p>current guess</p>
-            <p>no guesses yet!</p>
-          </div>
-          <div class="challenger-2-guess">
-            <h3>Challenger 2 Name</h3>
-            <p>current guess</p>
-            <p>no guesses yet!</p>
+          <div class="challenger-guess-wrapper">
+            <div class="challenger-1-guess">
+              <h3>Challenger 1 Name</h3>
+              <p>current guess</p>
+              <p>no guesses yet!</p>
+            </div>
+            <div id="latest-guess-line">
+              <hr>
+            </div>
+            <div class="challenger-2-guess">
+              <h3>Challenger 2 Name</h3>
+              <p>current guess</p>
+              <p>no guesses yet!</p>
+            </div>
           </div>
         </section>
       </div>

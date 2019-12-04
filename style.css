@@ -5,6 +5,18 @@
   padding: 0;
 }
 
+body {
+    color: #606060
+}
+
+span {
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 60px;
+}
+
 header {
   background-color: #404041;
   width: 100%;
@@ -12,12 +24,16 @@ header {
   padding: 20px 0px 20px 0px;
 }
 
-.left-line {
-  height: 1px;
-  width: 70px;
-  background-color: white;
-  border: 1px solid white;
-  margin: 30px 0px 0px 500px;
+.sub-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+hr {
+  width: 95px;
+  margin: 0px 10px 0px 10px;
 }
 
 header h1 {
@@ -28,6 +44,7 @@ header h1 {
 header p {
   display: inline;
   color: white;
+  font-size: 20px;
 }
 
 main {
@@ -39,22 +56,53 @@ main {
   flex-direction: column;
   width: 50%;
   height: 100vh;
-  border: solid 4px red;
   background-color: #f7f7f7;
 }
 
 .set-range-form {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
   background-color: white;
-  border: 4px solid blue;
+  border: 2px solid #EEEEEE;
+  padding: 25px 0px 0px 8px;
   flex: 1;
+  flex-wrap: wrap;
+}
+
+.min-max-ranges {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.min-range-wrapper,
+.max-range-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2%;
+  flex-wrap: wrap;
+}
+
+#min-range-input,
+#max-range-input {
+  height: 35px;
+  width: 235px;
+}
+
+label {
+  font-size: 20px;
 }
 
 .update-button {
-  height: 30px;
-  width: 110px;
-  border-radius: 10px;
+  height: 35px;
+  width: 130px;
+  border-radius: 25px;
   background-color: #d0d2d3;
   color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 25px 0px 0px 30px;
 }
 
 .challenger-guess-form {
@@ -88,20 +136,40 @@ main {
 }
 
 .latest-guess-output {
-  border: 4px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  background-color: white;
+  border: 2px solid #EEEEEE;
+  padding: 25px 0px 0px 8px;
   flex: 2;
+  flex-wrap: wrap;
+}
+
+.challenger-guess-wrapper {
   display: flex;
   justify-content: space-between;
-
+  align-items: flex-start;
+  padding: 2% 6% 0% 6%;
 }
 
 .challenger-1-guess {
-  align-self: center;
-
+  margin-left: 5%;
 }
 
 .challenger-2-guess {
-  align-self: center;
+  margin-right: 5%;
+}
+
+#latest-guess-line {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 0% 7% 0%;
+}
+
+#latest-guess-line hr {
+  width: 1px;
+  height: 120px;
 }
 
 .right-column {
