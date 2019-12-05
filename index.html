@@ -32,30 +32,34 @@
           </form>
         </section>
         <section class="challenger-guess-form">
-          <p>The Current Range is <span class="range-bottom"> 1 </span> to <span class="range-top"> 100 </span></p>
-          <h2>Challenger 1</h2>
-          <form class="horizontal-formatting">
-           <div class="vertical-formatting">
-            <label for="name">Name</label>
-            <input type="text" name="name">
-           </div>
-           <div class="vertical-formatting">
+          <p class="range">The Current Range is <span class="range-bottom"> 1 </span> to <span class="range-top"> 100 </span></p>
+          <div class="challenger">
+           <h2>Challenger 1</h2>
+           <form class="horizontal-formatting">
+            <div class="vertical-formatting">
+             <label for="name">Name</label>
+             <input class="name-input" type="text" name="name">
+            </div>
+           <div class="vertical-formatting guess-form">
             <label for="guess">Guess</label>
-            <input type="text" name="guess">
+            <input class="guess-input" type="text" name="guess">
            </div>
           </form>
+         </div>
+         <div class="challenger">
           <h2>Challenger 2</h2>
           <form class="horizontal-formatting">
            <div class="vertical-formatting">
             <label for="name">Name</label>
-            <input type="text" name="name">
+            <input class="name-input" type="text" name="name">
           </div>
-           <div class="vertical-formatting">
+           <div class="vertical-formatting guess-form">
             <label for="guess">Guess</label>
-            <input type="text" name="guess">
+            <input class="guess-input" type="text" name="guess">
           </div>
           </form>
-           <div class="horizontal-formatting challenger-buttons">
+         </div>
+           <div class="horizontal-formatting">
             <button class="submit-guess">SUBMIT GUESS</button>
             <button class="reset-game">RESET GAME</button>
             <button class="clear-form">CLEAR FORM</button>
@@ -91,4 +95,5 @@
       </div>
     </main>
   </body>
+  <script type="text/javascript" src="main.js"></script>
 </html>

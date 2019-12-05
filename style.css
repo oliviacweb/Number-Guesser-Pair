@@ -118,24 +118,21 @@ label {
 }
 
 .submit-guess {
-  height: 30px;
-  width: 110px;
+  width: 230px;
   border-radius: 10px;
   background-color: #d0d2d3;
   color: white;
 }
 
 .reset-game {
-  height: 30px;
-  width: 110px;
+  width: 180px;
   border-radius: 10px;
   background-color: #d0d2d3;
   color: white;
 }
 
 .clear-form {
-  height: 30px;
-  width: 110px;
+  width: 180px;
   border-radius: 10px;
   background-color: #d0d2d3;
   color: white;
@@ -172,12 +169,19 @@ label {
   padding: 1% 6% 0% 6
 }
 
+<<<<<<< HEAD
+
+.horizontal-formatting {
+ display: flex;
+ }
+=======
 .challenger-1-guess {
   display: flex;
   flex-direction: column;
   margin-left: 8%;
   align-items: center;
 }
+>>>>>>> master
 
 .challenger-2-guess {
   display: flex;
@@ -186,8 +190,48 @@ label {
   align-items: center;
 }
 
+<<<<<<< HEAD
+.name-input {
+  height: 35px;
+  width: 390px;
+}
+
+.guess-input {
+  height: 35px;
+  width: 245px;
+}
+
+.range {
+  margin-bottom: 15px;
+}
+
+.guess-form {
+  margin-left: 3%;
+}
+
+ .submit-guess,
+ .reset-game,
+ .clear-form {
+  height: 35px;
+  margin: 0 25px 10px 0px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+
+
+.challenger {
+  margin-bottom: 30px;
+}
+
+
+.challenger-1-guess {
+  margin-left: 5%;
+=======
 .guess-output {
   height: 70px;
+>>>>>>> master
 }
 
 .no-guesses-yet {
@@ -211,9 +255,11 @@ label {
     display: inline-block;
     border-bottom: 2px solid black;
     font-weight: bold;
-    height: 4px;
     padding-bottom: 19px;
+    height: 10px;
 }
+
+
 
 .right-column {
   width: 50%;
