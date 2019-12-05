@@ -169,19 +169,12 @@ label {
   padding: 1% 6% 0% 6
 }
 
-<<<<<<< HEAD
-
-.horizontal-formatting {
- display: flex;
- }
-=======
 .challenger-1-guess {
   display: flex;
   flex-direction: column;
   margin-left: 8%;
   align-items: center;
 }
->>>>>>> master
 
 .challenger-2-guess {
   display: flex;
@@ -190,7 +183,6 @@ label {
   align-items: center;
 }
 
-<<<<<<< HEAD
 .name-input {
   height: 35px;
   width: 390px;
@@ -228,10 +220,9 @@ label {
 
 .challenger-1-guess {
   margin-left: 5%;
-=======
+
 .guess-output {
   height: 70px;
->>>>>>> master
 }
 
 .no-guesses-yet {
