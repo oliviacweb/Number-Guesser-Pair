@@ -55,7 +55,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: #f7f7f7;
 }
 
@@ -141,25 +141,6 @@ label {
   color: white;
 }
 
-.latest-guess-output {
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  background-color: white;
-  border: 2px solid #EEEEEE;
-  padding: 25px 0px 0px 8px;
-  flex: 2;
-  flex-wrap: wrap;
-}
-
-.challenger-guess-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2% 6% 0% 6%;
-}
-
-
 .horizontal-formatting {
  display: flex;
 }
@@ -169,24 +150,60 @@ label {
   flex-direction: column;
 }
 
+.latest-guess-output {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  background-color: white;
+  border: 2px solid #EEEEEE;
+  padding: 10px 0px px 0px;
+  flex: 2;
+  flex-wrap: wrap;
+}
+
+.latest-guess-output h2 {
+  padding: 5px 0px 0px 8px;
+}
+
+.challenger-guess-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1% 6% 0% 6
+}
 
 .challenger-1-guess {
-  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8%;
+  align-items: center;
 }
 
 .challenger-2-guess {
-  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+  align-items: center;
+}
+
+.guess-output {
+  height: 70px;
+}
+
+.no-guesses-yet {
+  font-size: 20px;
 }
 
 #latest-guess-line {
   display: flex;
   flex-direction: column;
-  padding: 2% 0% 7% 0%;
+  padding: 0% 0% 5% 0%;
 }
 
 #latest-guess-line hr {
   width: 1px;
-  height: 120px;
+  height: 170px;
+  color: #ECECEC;
 }
 
 .range-top,
@@ -200,6 +217,5 @@ label {
 
 .right-column {
   width: 50%;
-  height: 100vh;
   background-color: #d0d2d3;
 }
