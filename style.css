@@ -1,9 +1,13 @@
- * {
+* {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   }
+
+.button-background {
+  background-color: blue;
+}
 
 body {
     color: #606060
