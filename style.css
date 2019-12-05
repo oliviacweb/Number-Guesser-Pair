@@ -118,24 +118,21 @@ label {
 }
 
 .submit-guess {
-  height: 30px;
-  width: 110px;
+  width: 230px;
   border-radius: 10px;
   background-color: #d0d2d3;
   color: white;
 }
 
 .reset-game {
-  height: 30px;
-  width: 110px;
+  width: 180px;
   border-radius: 10px;
   background-color: #d0d2d3;
   color: white;
 }
 
 .clear-form {
-  height: 30px;
-  width: 110px;
+  width: 180px;
   border-radius: 10px;
   background-color: #d0d2d3;
   color: white;
@@ -186,6 +183,18 @@ label {
 .guess-form {
   margin-left: 3%;
 }
+
+ .submit-guess,
+ .reset-game,
+ .clear-form {
+  height: 35px;
+  margin: 0 25px 10px 0px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+
 
 .challenger {
   margin-bottom: 30px;
