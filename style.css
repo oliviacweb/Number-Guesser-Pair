@@ -6,7 +6,7 @@
   }
 
 body {
-    color: #606060
+    color: #606060;
 }
 
 span {
@@ -25,9 +25,9 @@ header {
 }
 
 .sub-header {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
 }
 
