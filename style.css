@@ -220,6 +220,7 @@ label {
 
 .challenger-1-guess {
   margin-left: 5%;
+}
 
 .guess-output {
   height: 70px;
@@ -243,11 +244,12 @@ label {
 
 .range-top,
 .range-bottom {
-    display: inline-block;
-    border-bottom: 2px solid black;
-    font-weight: bold;
-    padding-bottom: 19px;
-    height: 10px;
+  display: inline-block;
+  border-bottom: 2px solid black;
+  text-decoration: underline;
+  font-weight: bold;
+  padding-bottom: 19px;
+  height: 10px;
 }
 
 
