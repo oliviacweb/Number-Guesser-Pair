@@ -225,8 +225,8 @@ label {
     display: inline-block;
     border-bottom: 2px solid black;
     font-weight: bold;
-    height: 4px;
     padding-bottom: 19px;
+    height: 10px;
 }
 
 
