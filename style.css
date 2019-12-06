@@ -55,7 +55,6 @@ main {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* height: 100vh; */
   background-color: #f7f7f7;
 }
 
@@ -114,7 +113,6 @@ label {
   padding: 8px;
   flex-wrap: wrap;
   flex: 3;
-
 }
 
 .submit-guess {
@@ -142,7 +140,7 @@ label {
  display: flex;
 }
 
-.vertical-formatting{
+.vertical-formatting {
   display: flex;
   flex-direction: column;
 }
