@@ -24,17 +24,20 @@ nameInputTwo.addEventListener('input', enableClearForm);
 guessInputOne.addEventListener('input', enableClearForm);
 guessInputTwo.addEventListener('input', enableClearForm);
 
-// Function to enable Clear Form button when one of the four fields is filled out 
+// Function to enable Clear Form button when one of the four fields is filled out
 function enableClearForm() {
-  if (nameInputOne.value != '') {
+  if (nameInputOne.value != '' || nameInputTwo.value !='' || guessInputOne.value !='' || guessInputTwo.value !='') {
     clearButton.disabled = false
-  } else if (nameInputTwo.value != '') {
-    clearButton.disabled = false
-  } else if (guessInputOne.value != '') {
-    clearButton.disabled = false
-  } else if (guessInputTwo.value != '') {
-    clearButton.disabled = false
-  } else {
+    } else {
     clearButton.disabled = true
-    }
   }
+}
+//function to clear contents when clear button is clicked
+
+clearButton.addEventListener('click', clearContents);
+
+function clearContents() {
+  nameInputOne.value = '', nameInputTwo.value = '', guessInputOne.value = '', guessInputTwo.value = '', clearButton.disabled = true
+}
+
+//Prevent weird cursor issues
