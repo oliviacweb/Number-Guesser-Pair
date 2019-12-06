@@ -1,9 +1,13 @@
- * {
+* {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   }
+
+.button-background-abled {
+  background-color: blue;
+}
 
 body {
     color: #606060
@@ -118,21 +122,30 @@ label {
 .submit-guess {
   width: 230px;
   border-radius: 10px;
-  background-color: #d0d2d3;
+  /*background-color: #6e6e6e;*/
   color: white;
+}
+
+button {
+  background-color: #6e6e6e;
+}
+button[disabled] {
+  background-color: #d0d2d3;
+}
+
+button:hover:enabled{
+  background-color: #dd1792;
 }
 
 .reset-game {
   width: 180px;
   border-radius: 10px;
-  background-color: #d0d2d3;
   color: white;
 }
 
 .clear-form {
   width: 180px;
   border-radius: 10px;
-  background-color: #d0d2d3;
   color: white;
 }
 
@@ -209,12 +222,9 @@ label {
   border-radius: 25px;
 }
 
-
-
 .challenger {
   margin-bottom: 30px;
 }
-
 
 .challenger-1-guess {
   margin-left: 5%;
