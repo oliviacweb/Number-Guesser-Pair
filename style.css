@@ -59,7 +59,6 @@ main {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* height: 100vh; */
   background-color: #f7f7f7;
 }
 
@@ -138,21 +137,15 @@ button:hover:enabled{
   background-color: #dd1792;
 }
 
-/*button:hover {
-  background-color: red;
-}*/
-
 .reset-game {
   width: 180px;
   border-radius: 10px;
-  /*background-color: #d0d2d3;*/
   color: white;
 }
 
 .clear-form {
   width: 180px;
   border-radius: 10px;
-  /*background-color: #d0d2d3;*/
   color: white;
 }
 
@@ -160,7 +153,7 @@ button:hover:enabled{
  display: flex;
 }
 
-.vertical-formatting{
+.vertical-formatting {
   display: flex;
   flex-direction: column;
 }
