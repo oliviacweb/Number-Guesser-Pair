@@ -38,3 +38,23 @@ function enableClearForm() {
     clearButton.disabled = true
     }
   }
+
+  // Function to enter numbers from min and max range into current range
+
+
+  var updateButton = document.querySelector(".update-button");
+  var minRangeOutput = document.querySelector(".range-bottom");
+  var maxRangeOutput = document.querySelector(".range-top");
+
+  updateButton.addEventListener('click', inputBottomRange);
+  updateButton.addEventListener('click', inputTopRange);
+
+  function inputBottomRange() {
+    var minRangeInput = document.querySelector("#min-range-input").value;
+    minRangeOutput.innerHTML = minRangeInput
+  }
+
+  function inputTopRange() {
+    var maxRangeInput = document.querySelector("#max-range-input").value;
+    maxRangeOutput.innerHTML = maxRangeInput
+  }
