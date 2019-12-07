@@ -26,18 +26,15 @@ guessInputTwo.addEventListener('input', enableClearForm);
 
 // Function to enable Clear Form button when one of the four fields is filled out
 function enableClearForm() {
-  if (nameInputOne.value != '' || nameInputTwo.value !='' || guessInputOne.value !='' || guessInputTwo.value !='') {
+  if (nameInputOne.value != '') {
     clearButton.disabled = false
-    } else {
+  } else if (nameInputTwo.value != '') {
+    clearButton.disabled = false
+  } else if (guessInputOne.value != '') {
+    clearButton.disabled = false
+  } else if (guessInputTwo.value != '') {
+    clearButton.disabled = false
+  } else {
     clearButton.disabled = true
+    }
   }
-}
-//function to clear contents when clear button is clicked
-
-clearButton.addEventListener('click', clearContents);
-
-function clearContents() {
-  nameInputOne.value = '', nameInputTwo.value = '', guessInputOne.value = '', guessInputTwo.value = '', clearButton.disabled = true
-}
-
-//Prevent weird cursor issues
