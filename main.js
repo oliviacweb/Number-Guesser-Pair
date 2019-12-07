@@ -11,7 +11,7 @@ guessInputTwo.addEventListener('input', checkButtonStatus);
 
 // Function to enable Submit Guess button when both name fields and guess fields are filled out
 function checkButtonStatus() {
-  if (nameInputOne.value != '' && nameInputTwo.value !='' && guessInputOne.value !='' && guessInputTwo.value !='') {
+  if (nameInputOne.value !='' && nameInputTwo.value !='' && guessInputOne.value !='' && guessInputTwo.value !='') {
     submitButton.disabled = false
   } else {
     submitButton.disabled = true
