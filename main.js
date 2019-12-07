@@ -10,7 +10,7 @@ guessInputOne.addEventListener('input', checkButtonStatus);
 guessInputTwo.addEventListener('input', checkButtonStatus);
 
 function checkButtonStatus() {
-  if (nameInputOne.value != '' && nameInputTwo.value !='' && guessInputOne.value !='' && guessInputTwo.value !='') {
+  if (nameInputOne.value !='' && nameInputTwo.value !='' && guessInputOne.value !='' && guessInputTwo.value !='') {
     submitButton.disabled = false
     //submitButton.classList.add('button-background');
   } else {
