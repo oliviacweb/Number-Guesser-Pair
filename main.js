@@ -53,6 +53,7 @@ var nameTwoMessage = document.querySelector(".name-2");
 var guessOneMessage = document.querySelector(".guess-1");
 var guessTwoMessage = document.querySelector(".guess-2");
 submitButton.addEventListener('click', displayInputs);
+<<<<<<< HEAD
 
 function displayInputs() {
   var nameOne = nameInputOne.value;
@@ -67,7 +68,21 @@ function displayInputs() {
 }
 
   // Function to enter numbers from min and max range into current range
+=======
+>>>>>>> master
 
+function displayInputs() {
+  var nameOne = nameInputOne.value;
+  nameOneMessage.innerText = nameOne;
+  var nameTwo = nameInputTwo.value;
+  nameTwoMessage.innerText = nameTwo;
+  var guessOne = guessInputOne.value;
+  guessOneMessage.innerText = guessOne;
+  var guessTwo = guessInputTwo.value;
+  guessTwoMessage.innerText = guessTwo;
+}
+
+  // Function to enter numbers from min and max range into current range
   var updateButton = document.querySelector(".update-button");
   var minRangeOutput = document.querySelector(".range-bottom");
   var maxRangeOutput = document.querySelector(".range-top");
