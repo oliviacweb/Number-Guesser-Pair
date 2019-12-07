@@ -71,6 +71,7 @@ function displayInputs() {
 =======
 >>>>>>> master
 
+
 function displayInputs() {
   var nameOne = nameInputOne.value;
   nameOneMessage.innerText = nameOne;
