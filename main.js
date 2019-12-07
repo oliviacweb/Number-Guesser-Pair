@@ -18,13 +18,22 @@ function checkButtonStatus() {
   }
 }
 
+// Function to clear guess inputs when submit button is clicked
+
+submitButton.addEventListener ('click', clearGuessInputs);
+
+function clearGuessInputs() {
+  guessInputOne.value = '', guessInputTwo.value = '';
+}
+
+// Function to enable Clear Form button when one of the four fields is filled out
+
 var clearButton = document.querySelector(".clear-form");
 nameInputOne.addEventListener('input', enableClearForm);
 nameInputTwo.addEventListener('input', enableClearForm);
 guessInputOne.addEventListener('input', enableClearForm);
 guessInputTwo.addEventListener('input', enableClearForm);
 
-// Function to enable Clear Form button when one of the four fields is filled out
 function enableClearForm() {
   if (nameInputOne.value != '') {
     clearButton.disabled = false
@@ -40,7 +49,6 @@ function enableClearForm() {
   }
 
   // Function to enter numbers from min and max range into current range
-
 
   var updateButton = document.querySelector(".update-button");
   var minRangeOutput = document.querySelector(".range-bottom");
