@@ -129,6 +129,7 @@ label {
 button {
   background-color: #6e6e6e;
 }
+
 button[disabled] {
   background-color: #d0d2d3;
 }
