@@ -66,7 +66,6 @@ function displayInputs() {
 }
 
   // Function to enter numbers from min and max range into current range
-
   var updateButton = document.querySelector(".update-button");
   var minRangeOutput = document.querySelector(".range-bottom");
   var maxRangeOutput = document.querySelector(".range-top");
