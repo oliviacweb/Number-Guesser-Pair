@@ -20,11 +20,11 @@ function checkButtonStatus() {
 
 // Function to clear guess inputs when submit button is clicked
 
-submitButton.addEventListener ('click', clearGuessInputs);
-
-function clearGuessInputs() {
-  guessInputOne.value = '', guessInputTwo.value = '';
-}
+// submitButton.addEventListener ('click', clearGuessInputs);
+//
+// function clearGuessInputs() {
+//   guessInputOne.value = '', guessInputTwo.value = '';
+// }
 
 // Function to enable Clear Form button when one of the four fields is filled out
 
@@ -53,6 +53,23 @@ var nameTwoMessage = document.querySelector(".name-2");
 var guessOneMessage = document.querySelector(".guess-1");
 var guessTwoMessage = document.querySelector(".guess-2");
 submitButton.addEventListener('click', displayInputs);
+<<<<<<< HEAD
+
+function displayInputs() {
+  var nameOne = nameInputOne.value;
+  nameOneMessage.innerText = nameOne;
+  var nameTwo = nameInputTwo.value;
+  nameTwoMessage.innerText = nameTwo;
+  var guessOne = guessInputOne.value;
+  guessOneMessage.innerText = guessOne;
+  var guessTwo = guessInputTwo.value;
+  guessTwoMessage.innerText = guessTwo;
+  guessInputOne.value = '', guessInputTwo.value = '';
+}
+
+  // Function to enter numbers from min and max range into current range
+=======
+>>>>>>> master
 
 function displayInputs() {
   var nameOne = nameInputOne.value;
