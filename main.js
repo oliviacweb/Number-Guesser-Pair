@@ -27,19 +27,21 @@ guessInputOne.addEventListener('input', enableClearForm);
 guessInputTwo.addEventListener('input', enableClearForm);
 
 function enableClearForm() {
-  if (nameInputOne.value != '') {
-    clearButton.disabled = false
-  } else if (nameInputTwo.value != '') {
-    clearButton.disabled = false
-  } else if (guessInputOne.value != '') {
-    clearButton.disabled = false
-  } else if (guessInputTwo.value != '') {
+  if (nameInputOne.value !='' || nameInputTwo.value !='' || guessInputOne.value !='' || guessInputTwo.value !='') {
     clearButton.disabled = false
   } else {
     clearButton.disabled = true
-    }
   }
+}
 
+// Function to clear contents when Clear Form is clicked
+clearButton.addEventListener('click', clearContents);
+
+function clearContents() {
+  nameInputOne.value = '', nameInputTwo.value = '', guessInputOne.value = '', guessInputTwo.value = '', clearButton.disabled = true
+}
+
+// Function to add Challenger and Guess input to Latest Guess form
 var nameOneMessage = document.querySelector(".name-1");
 var nameTwoMessage = document.querySelector(".name-2");
 var guessOneMessage = document.querySelector(".guess-1");
@@ -58,9 +60,6 @@ function displayInputs() {
   guessTwoMessage.innerText = guessTwo;
   guessInputOne.value = '', guessInputTwo.value = '';
 }
-
-  // Function to enter numbers from min and max range into current range
-
 
   // Function to enter numbers from min and max range into current range
   var updateButton = document.querySelector(".update-button");
