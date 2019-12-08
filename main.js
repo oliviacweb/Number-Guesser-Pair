@@ -85,19 +85,34 @@ function displayInputs() {
   var updateButton = document.querySelector(".update-button");
   var minRangeOutput = document.querySelector(".range-bottom");
   var maxRangeOutput = document.querySelector(".range-top");
+  var minRangeInput = document.querySelector("#min-range-input");
+  var maxRangeInput = document.querySelector("#max-range-input");
 
   updateButton.addEventListener('click', inputBottomRange);
   updateButton.addEventListener('click', inputTopRange);
 
   function inputBottomRange() {
-    var minRangeInput = document.querySelector("#min-range-input").value;
-    minRangeOutput.innerHTML = minRangeInput
+    minRangeOutput.innerHTML = minRangeInput.value;
   }
 
   function inputTopRange() {
-    var maxRangeInput = document.querySelector("#max-range-input").value;
-    maxRangeOutput.innerHTML = maxRangeInput
+    maxRangeOutput.innerHTML = maxRangeInput.value
   }
+
+// Function to input range parameters into random number generator
+
+updateButton.addEventListener('click', updateRandomInteger);
+
+var randomNumber = null;
+
+function updateRandomInteger () {
+  min = parseInt(minRangeInput.value);
+  max = parseInt(maxRangeInput.value);
+  var updatedRandomInteger = Math.floor(Math.random() * (max - min + 1) + min);
+  console.log(updatedRandomInteger, min, max);
+  randomNumber = updatedRandomInteger;
+  console.log(randomNumber);
+}
 
 // Function to give hint to GUESSER
 
@@ -107,7 +122,7 @@ submitButton.addEventListener('click', challengerTwoHint);
 var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
 var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
 
-var randomNumber = Math.floor(Math.random() * 100);
+
 
 function challengerOneHint() {
   if (guessInputOne.value > randomNumber) {
