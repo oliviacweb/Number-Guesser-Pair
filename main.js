@@ -11,8 +11,14 @@ guessInputOne.addEventListener('input', checkButtonStatus);
 guessInputTwo.addEventListener('input', checkButtonStatus);
 
 // Function to clear text in guess fields
-function clearText() {
+function clearGuesses() {
 guessInputOne.value = '', guessInputTwo.value = '';
+}
+
+// Function to clear all inputs in guess form
+
+function clearGuessForm() {
+  guessInputOne.value = '', guessInputTwo.value = '', nameInputOne.value = '', nameInputTwo.value = '';
 }
 
 // Function to enable Submit Guess button when both name fields and guess fields are filled out
@@ -109,9 +115,7 @@ function updateRandomInteger () {
   min = parseInt(minRangeInput.value);
   max = parseInt(maxRangeInput.value);
   var updatedRandomInteger = Math.floor(Math.random() * (max - min + 1) + min);
-  console.log(updatedRandomInteger, min, max);
   randomNumber = updatedRandomInteger;
-  console.log(randomNumber);
 }
 
 // Function to give hint to GUESSER
@@ -121,8 +125,6 @@ submitButton.addEventListener('click', challengerTwoHint);
 
 var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
 var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
-
-
 
 function challengerOneHint() {
   if (guessInputOne.value > randomNumber) {
@@ -142,8 +144,20 @@ function challengerTwoHint() {
   } else {
     challengerTwoGuessResponse.innerHTML = "BOOM!";
   }
-  clearText(), submitButton.disabled = true;
 }
+
+// Function to clear guess form when user submits a correct guess
+
+submitButton.addEventListener('click', resetGuessForm);
+
+function resetGuessForm() {
+  if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
+      guessInputOne.value = '', guessInputTwo.value = '', nameInputOne.value = '', nameInputTwo.value = ''
+  } else {
+    clearGuesses(), submitButton.disabled = true;
+}
+}
+
 
 
 
