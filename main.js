@@ -87,12 +87,14 @@ function displayInputs() {
 // Function to give hint to GUESSER
 
 submitButton.addEventListener('click', challengerOneHint);
+submitButton.addEventListener('click', challengerTwoHint);
 
 var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
+var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
 
+var randomNumber = Math.floor(Math.random() * 100);
 
 function challengerOneHint() {
-  var randomNumber = 9;
   if (guessInputOne.value > randomNumber) {
     challengerOneGuessResponse.innerHTML = "that's too high"
   } else if (guessInputOne.value < randomNumber) {
@@ -100,8 +102,19 @@ function challengerOneHint() {
   } else {
     challengerOneGuessResponse.innerHTML = "BOOM!";
   }
+}
+
+function challengerTwoHint() {
+  if (guessInputTwo.value > randomNumber) {
+    challengerTwoGuessResponse.innerHTML = "that's too high"
+  } else if (guessInputTwo.value < randomNumber) {
+    challengerTwoGuessResponse.innerHTML = "that's too low"
+  } else {
+    challengerTwoGuessResponse.innerHTML = "BOOM!";
+  }
   clearText();
 }
+
 
 
 
