@@ -4,10 +4,15 @@ var nameInputTwo = document.querySelector("#name-input-2");
 var guessInputOne = document.querySelector("#guess-input-1");
 var guessInputTwo = document.querySelector("#guess-input-2");
 
+
 nameInputOne.addEventListener('input', checkButtonStatus);
 nameInputTwo.addEventListener('input', checkButtonStatus);
 guessInputOne.addEventListener('input', checkButtonStatus);
 guessInputTwo.addEventListener('input', checkButtonStatus);
+
+function clearText() {
+guessInputOne.value = '', guessInputTwo.value = '';
+}
 
 // Function to enable Submit Guess button when both name fields and guess fields are filled out
 function checkButtonStatus() {
@@ -58,7 +63,7 @@ function displayInputs() {
   guessOneMessage.innerText = guessOne;
   var guessTwo = guessInputTwo.value;
   guessTwoMessage.innerText = guessTwo;
-  guessInputOne.value = '', guessInputTwo.value = '';
+  // guessInputOne.value = '', guessInputTwo.value = '';
 }
 
   // Function to enter numbers from min and max range into current range
@@ -78,3 +83,26 @@ function displayInputs() {
     var maxRangeInput = document.querySelector("#max-range-input").value;
     maxRangeOutput.innerHTML = maxRangeInput
   }
+
+// Function to give hint to GUESSER
+
+submitButton.addEventListener('click', challengerOneHint);
+
+var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
+
+
+function challengerOneHint() {
+  var randomNumber = 9;
+  if (guessInputOne.value > randomNumber) {
+    challengerOneGuessResponse.innerHTML = "that's too high"
+  } else if (guessInputOne.value < randomNumber) {
+    challengerOneGuessResponse.innerHTML = "that's too low"
+  } else {
+    challengerOneGuessResponse.innerHTML = "BOOM!";
+  }
+  clearText();
+}
+
+
+
+// fixing cursor issue
