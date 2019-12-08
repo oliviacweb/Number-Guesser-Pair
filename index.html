@@ -22,13 +22,13 @@
           <form class="min-max-ranges">
             <div class="min-range-wrapper">
               <label for="min-range">Min Range</label>
-              <input id="min-range-input" type="text" name="min-range">
+              <input id="min-range-input" type="number" name="min-range" />
             </div>
             <div class="max-range-wrapper">
               <label for="max-range">Max Range</label>
-              <input id="max-range-input" type="text" name="max-range">
+              <input id="max-range-input" type="number" name="max-range" />
             </div>
-            <button type = "button" class="update-button">UPDATE</button>
+            <button type = "button" class="update-button" disabled="disabled">UPDATE</button>
           </form>
         </section>
         <section class="challenger-guess-form">
@@ -72,6 +72,7 @@
               <h3 class="name-1">Challenger 1 Name</h3>
               <p class="guess-1">current guess</p>
               <div class="guess-output">
+                <h1 class="challenger-1-current-guess">  </h1>
               </div>
               <div class="no-guesses-yet">
                 <p class="challenger-1-hint">no guesses yet!</p>
@@ -84,6 +85,7 @@
               <h3 class="name-2">Challenger 2 Name</h3>
                 <p class="guess-2">current guess</p>
               <div class="guess-output">
+                <h1 class="challenger-2-current-guess">  </h1>
               </div>
               <div class="no-guesses-yet">
                 <p class="challenger-2-hint">no guesses yet!</p>
@@ -97,13 +99,3 @@
   </body>
   <script type="text/javascript" src="main.js"></script>
 </html>
-
-
-
-
-
-<!--<input type="text" placeholder="name" />
-<button id="cake">🍰</button>
-<button id="ice-cream">🍦</button>
-<button id="cookie">🍪</button>
-<h2></h2>-->

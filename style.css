@@ -5,12 +5,14 @@
   padding: 0;
   }
 
-.button-background-abled {
-  background-color: blue;
+body {
+    color: #606060;
 }
 
-body {
-    color: #606060
+input {
+  color: #606060;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
 }
 
 span {
@@ -19,6 +21,7 @@ span {
 
 h1 {
   font-size: 60px;
+  color: #dd1972;
 }
 
 header {
@@ -42,7 +45,7 @@ hr {
 
 header h1 {
   display: inline;
-  color: #dd1972;
+  /* color: #dd1972; */
 }
 
 header p {
@@ -122,11 +125,10 @@ label {
 .submit-guess {
   width: 230px;
   border-radius: 10px;
-  /*background-color: #6e6e6e;*/
   color: white;
 }
 
-button {
+button:enabled {
   background-color: #6e6e6e;
 }
 
@@ -171,7 +173,7 @@ button:hover:enabled{
 }
 
 .latest-guess-output h2 {
-  padding: 5px 0px 0px 8px;
+  padding: 5px 0px 2px 8px;
 }
 
 .challenger-guess-wrapper {
@@ -235,14 +237,26 @@ button:hover:enabled{
   height: 70px;
 }
 
+.guess-1,
+.guess-2 {
+  font-size: 17px;
+}
+
+.challenger-1-current-guess,
+.challenger-2-current-guess {
+  font-size: 80px;
+  font-weight: bold;
+}
+
 .no-guesses-yet {
   font-size: 20px;
+  margin-top: 18%;
 }
 
 #latest-guess-line {
   display: flex;
   flex-direction: column;
-  padding: 0% 0% 5% 0%;
+  padding: 0% 0% 3% 0%;
 }
 
 #latest-guess-line hr {
