@@ -5,14 +5,12 @@
   padding: 0;
   }
 
-body {
-    color: #606060;
+.button-background-abled {
+  background-color: blue;
 }
 
-input {
-  color: #606060;
-  font-family: "Open Sans", sans-serif;
-  font-size: 15px;
+body {
+    color: #606060
 }
 
 span {
@@ -21,7 +19,6 @@ span {
 
 h1 {
   font-size: 60px;
-  color: #dd1972;
 }
 
 header {
@@ -45,7 +42,7 @@ hr {
 
 header h1 {
   display: inline;
-  /* color: #dd1972; */
+  color: #dd1972;
 }
 
 header p {
@@ -125,10 +122,11 @@ label {
 .submit-guess {
   width: 230px;
   border-radius: 10px;
+  /*background-color: #6e6e6e;*/
   color: white;
 }
 
-button:enabled {
+button {
   background-color: #6e6e6e;
 }
 
@@ -161,6 +159,8 @@ button:hover:enabled{
   flex-direction: column;
 }
 
+
+
 .latest-guess-output {
   display: flex;
   flex-direction: column;
@@ -173,7 +173,7 @@ button:hover:enabled{
 }
 
 .latest-guess-output h2 {
-  padding: 5px 0px 2px 8px;
+  padding: 5px 0px 0px 8px;
 }
 
 .challenger-guess-wrapper {
@@ -237,26 +237,14 @@ button:hover:enabled{
   height: 70px;
 }
 
-.guess-1,
-.guess-2 {
-  font-size: 17px;
-}
-
-.challenger-1-current-guess,
-.challenger-2-current-guess {
-  font-size: 80px;
-  font-weight: bold;
-}
-
 .no-guesses-yet {
   font-size: 20px;
-  margin-top: 18%;
 }
 
 #latest-guess-line {
   display: flex;
   flex-direction: column;
-  padding: 0% 0% 3% 0%;
+  padding: 0% 0% 5% 0%;
 }
 
 #latest-guess-line hr {
@@ -277,7 +265,72 @@ button:hover:enabled{
 
 
 
-.right-column {
+.column2 {
   width: 50%;
   background-color: #d0d2d3;
+}
+
+
+
+.card {
+  margin: 25px 40px;
+  padding:15px;
+  border: 1px solid #b5b5b4;
+  background-color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card-title {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-title p {
+  font-weight: bold;
+}
+
+
+.challenger-winner {
+  margin: 3%;
+  font-size: 30px;
+}
+
+#card-name {
+  font-weight: bold;
+}
+
+#winner {
+  font-weight: 200;
+}
+
+.game-card-info {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.card-stats span {
+  font-weight: bold;
+}
+
+button .close-card {
+  background-color: #6e6e6e;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+#x-button {
+height: 11px;
+padding-top: 3px;
+border-radius: 50%;
+}
+
+.card-time {
+  margin-right: 8%;
 }
