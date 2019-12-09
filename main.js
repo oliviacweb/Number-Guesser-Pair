@@ -166,7 +166,7 @@ function displayWinnerCard() {
     gameOneCard.classList.replace('display-hidden', 'display-visible');
   }
   else {
-    clearGuesses();
+   submitButton.disabled = false;
   }
 }
 
@@ -175,7 +175,18 @@ submitButton.addEventListener('click', displayCardNames);
 function displayCardNames() {
   var challengerOneCardName = document.querySelector('.challenger-1-card-name');
   var challengerTwoCardName = document.querySelector('.challenger-2-card-name');
+  var winnerName = document.querySelector('.card-winner-name');
    challengerOneCardName.innerText = nameInputOne.value, challengerTwoCardName.innerText = nameInputTwo.value;
+  if (guessInputOne.value == randomNumber) {
+    winnerName.innerText = nameInputOne.value;
+  } else if
+    (guessInputTwo.value == randomNumber) {
+      winnerName.innerText = nameInputTwo.value;
+  } else {
+    clearGuesses();
  }
+}
+
+
 
 // fixing cursor issue
