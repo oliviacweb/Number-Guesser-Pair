@@ -138,6 +138,7 @@ button[disabled] {
 
 button:hover:enabled{
   background-color: #dd1792;
+  cursor: pointer;
 }
 
 .reset-game {

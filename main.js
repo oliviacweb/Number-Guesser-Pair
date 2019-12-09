@@ -114,8 +114,7 @@ var randomNumber = null;
 function updateRandomInteger () {
   min = parseInt(minRangeInput.value);
   max = parseInt(maxRangeInput.value);
-  var updatedRandomInteger = Math.floor(Math.random() * (max - min + 1) + min);
-  randomNumber = updatedRandomInteger;
+  randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 // Function to give hint to GUESSER
@@ -146,18 +145,17 @@ function challengerTwoHint() {
   }
 }
 
-// Function to clear guess form when user submits a correct guess
+// Function to clear guess form and choose new random number when user submits a correct guess
 
 submitButton.addEventListener('click', resetGuessForm);
 
 function resetGuessForm() {
   if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
-      guessInputOne.value = '', guessInputTwo.value = '', nameInputOne.value = '', nameInputTwo.value = ''
+      clearContents(), updateRandomInteger()
   } else {
     clearGuesses(), submitButton.disabled = true;
+  }
 }
-}
-
 
 
 
