@@ -151,13 +151,31 @@ submitButton.addEventListener('click', resetGuessForm);
 
 function resetGuessForm() {
   if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
-      clearContents(), updateRandomInteger()
+       updateRandomInteger()
   } else {
-    clearGuesses(), submitButton.disabled = true;
+     submitButton.disabled = true;
   }
 }
 
+//card-functionality
+submitButton.addEventListener('click', displayWinnerCard);
 
+function displayWinnerCard() {
+  var gameOneCard = document.querySelector(".winner-card");
+  if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
+    gameOneCard.classList.replace('display-hidden', 'display-visible');
+  }
+  else {
+    clearGuesses();
+  }
+}
 
+submitButton.addEventListener('click', displayCardNames);
+
+function displayCardNames() {
+  var challengerOneCardName = document.querySelector('.challenger-1-card-name');
+  var challengerTwoCardName = document.querySelector('.challenger-2-card-name');
+   challengerOneCardName.innerText = nameInputOne.value, challengerTwoCardName.innerText = nameInputTwo.value;
+ }
 
 // fixing cursor issue

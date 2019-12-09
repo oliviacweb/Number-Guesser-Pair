@@ -45,6 +45,10 @@ header h1 {
   color: #dd1972;
 }
 
+.guess-output h1 {
+  color: #dd1972;
+}
+
 header p {
   display: inline;
   color: white;
@@ -273,13 +277,14 @@ button:hover:enabled{
 
 
 
-.card {
+.winner-card {
   margin: 25px 40px;
   padding:15px;
   border: 1px solid #b5b5b4;
   background-color: white;
   text-align: center;
   text-transform: uppercase;
+  /*flex-wrap: wrap;*/
 }
 
 .card-title {
@@ -294,16 +299,16 @@ button:hover:enabled{
 }
 
 
-.challenger-winner {
+.winner-section {
   margin: 3%;
-  font-size: 30px;
+  font-size: 28px;
 }
 
-#card-name {
+.card-winner-name {
   font-weight: bold;
 }
 
-#winner {
+.winner {
   font-weight: 200;
 }
 
@@ -334,4 +339,12 @@ border-radius: 50%;
 
 .card-time {
   margin-right: 8%;
+}
+
+.display-hidden {
+  display: none;
+}
+
+.display-visible {
+  display: block;
 }
