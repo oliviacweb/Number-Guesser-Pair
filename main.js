@@ -157,19 +157,30 @@ function resetGuessForm() {
   }
 }
 
-//card-functionality
+//Function to populate winner/game card
 submitButton.addEventListener('click', displayWinnerCard);
 
 function displayWinnerCard() {
-  var gameOneCard = document.querySelector(".winner-card");
+  var gameOneCard = document.querySelector(".winner-card-wrapper");
   if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
-    gameOneCard.classList.replace('display-hidden', 'display-visible');
-  }
-  else {
-   submitButton.disabled = false;
+    gameOneCard.innerHTML = `<div class="winner-card">
+    <section class="card-title">
+      <p class="challenger-1-card-name">challenger 1 name</p> <span>vs</span> <p class="challenger-2-card-name">challenger 2 name</p>
+    </section>
+    <section class="winner-section">
+      <h3 class="card-winner-name">Challenger 2 name</h3>
+      <p class="winner">winner</p>
+    </section>
+    <section class="game-card-info">
+      <p class="card-guess-num"><span>47</span> guesses</p>
+      <p class="card-time"><span>1</span> minute <span>35</span> second</p>
+      <button class="close-card"><img id="x-button" src="https://image.flaticon.com/icons/svg/458/458595.svg" alt="x image for close button"> </button>
+    </section>
+  </div>`
   }
 }
 
+// Function to populate information into winner card 
 submitButton.addEventListener('click', displayCardNames);
 
 function displayCardNames() {
@@ -186,6 +197,9 @@ function displayCardNames() {
     clearGuesses();
  }
 }
+
+// Function to count number of guesses
+
 
 
 
