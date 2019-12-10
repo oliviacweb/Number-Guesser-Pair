@@ -3,6 +3,8 @@ var nameInputOne = document.querySelector("#name-input-1");
 var nameInputTwo = document.querySelector("#name-input-2");
 var guessInputOne = document.querySelector("#guess-input-1");
 var guessInputTwo = document.querySelector("#guess-input-2");
+var winningName = null;
+var randomNumber = null;
 
 
 nameInputOne.addEventListener('input', checkButtonStatus);
@@ -17,9 +19,9 @@ guessInputOne.value = '', guessInputTwo.value = '';
 
 // Function to clear all inputs in guess form
 
-function clearGuessForm() {
-  guessInputOne.value = '', guessInputTwo.value = '', nameInputOne.value = '', nameInputTwo.value = '';
-}
+// function clearGuessForm() {
+//   guessInputOne.value = '', guessInputTwo.value = '', nameInputOne.value = '', nameInputTwo.value = '';
+// }
 
 // Function to enable Submit Guess button when both name fields and guess fields are filled out
 function checkButtonStatus() {
@@ -74,7 +76,13 @@ var nameOneMessage = document.querySelector(".name-1");
 var nameTwoMessage = document.querySelector(".name-2");
 var guessOneMessage = document.querySelector(".challenger-1-current-guess");
 var guessTwoMessage = document.querySelector(".challenger-2-current-guess");
-submitButton.addEventListener('click', displayInputs);
+submitButton.addEventListener('click', submitHandler);
+
+function submitHandler() {
+  displayInputs();
+  challengerOneResults();
+  submitGuessForm();
+}
 
 function displayInputs() {
   var nameOne = nameInputOne.value;
@@ -109,45 +117,44 @@ function displayInputs() {
 
 updateButton.addEventListener('click', updateRandomInteger);
 
-var randomNumber = null;
-
 function updateRandomInteger () {
   min = parseInt(minRangeInput.value);
   max = parseInt(maxRangeInput.value);
   randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// Function to give hint to GUESSER
-
-submitButton.addEventListener('click', challengerOneHint);
-submitButton.addEventListener('click', challengerTwoHint);
-
 var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
 var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
 
-function challengerOneHint() {
+// Functions for challenge winners
+
+
+function challengerOneResults() {
   if (guessInputOne.value > randomNumber) {
     challengerOneGuessResponse.innerHTML = "that's too high"
   } else if (guessInputOne.value < randomNumber) {
     challengerOneGuessResponse.innerHTML = "that's too low"
   } else {
     challengerOneGuessResponse.innerHTML = "BOOM!";
+    winningName = nameInputOne.value;
+    winnerCard();
   }
+  challengerTwoResults();
 }
 
-function challengerTwoHint() {
+function challengerTwoResults() {
   if (guessInputTwo.value > randomNumber) {
     challengerTwoGuessResponse.innerHTML = "that's too high"
   } else if (guessInputTwo.value < randomNumber) {
     challengerTwoGuessResponse.innerHTML = "that's too low"
   } else {
     challengerTwoGuessResponse.innerHTML = "BOOM!";
+    winningName = nameInputTwo.value;
+    winnerCard();
   }
 }
 
-// Function to clear guess form and choose new random number when user submits a correct guess
-
-submitButton.addEventListener('click', resetGuessForm);
+// Function to choose new random number when user submits a correct guess
 
 function resetGuessForm() {
   if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
@@ -157,25 +164,28 @@ function resetGuessForm() {
   }
 }
 
-//card-functionality
-submitButton.addEventListener('click', displayWinnerCard);
+var column2 = document.querySelector('.column2');
 
-function displayWinnerCard() {
-  var gameOneCard = document.querySelector(".winner-card");
-  if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
-    gameOneCard.classList.replace('display-hidden', 'display-visible');
+//Function to populate winner/game card
+
+function winnerCard() {
+  var gameCard = `<div class="winner-card">
+    <section class="card-title">
+      <p class="challenger-1-card-name">${nameInputOne.value}</p> <span>vs</span> <p class="challenger-2-card-name">${nameInputTwo.value}</p>
+    </section>
+    <section class="winner-section">
+      <h3 class="card-winner-name">${winningName}</h3>
+      <p class="winner">winner</p>
+    </section>
+    <section class="game-card-info">
+      <p class="card-guess-num"><span>47</span> guesses</p>
+      <p class="card-time"><span>1</span> minute <span>35</span> second</p>
+      <button class="close-card"><img id="x-button" src="https://image.flaticon.com/icons/svg/458/458595.svg" alt="x image for close button"> </button>
+    </section>
+  </div>`;
+  column2.insertAdjacentHTML("afterbegin", gameCard);
   }
-  else {
-    clearGuesses();
-  }
-}
 
-submitButton.addEventListener('click', displayCardNames);
 
-function displayCardNames() {
-  var challengerOneCardName = document.querySelector('.challenger-1-card-name');
-  var challengerTwoCardName = document.querySelector('.challenger-2-card-name');
-   challengerOneCardName.innerText = nameInputOne.value, challengerTwoCardName.innerText = nameInputTwo.value;
- }
 
 // fixing cursor issue
