@@ -22,6 +22,7 @@ updateButton.addEventListener('click', updateHandler);
 clearButton.addEventListener('click', clearContents);
 minRange.addEventListener('input', inputHandler);
 maxRange.addEventListener('input', inputHandler);
+maxRange.addEventListener('keyup', inputHandler);
 resetButton.addEventListener('click', resetGame);
 
 function resetButton() {
@@ -36,6 +37,7 @@ function inputHandler() {
   enableSubmitButton();
   enableResetButton();
   enableUpdateButton();
+  displayMaxErrorMessage();
 }
 
 // Submit button event handler
@@ -134,10 +136,23 @@ function displayInputs() {
 
 // Function to input range parameters into random number generator
 
-function updateRandomInteger () {
+function updateRandomInteger() {
   min = parseInt(minRange.value);
   max = parseInt(maxRange.value);
   randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// Function to add max range error message
+
+function displayMaxErrorMessage() {
+if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+  document.getElementById("max-error-message").classList.replace("hidden", "visible");
+  document.getElementById("max-range-input").classList.add("border-pink");
+  updateButton.disabled = true;
+} else {
+  document.getElementById("max-error-message").classList.replace("visible", "hidden");
+  document.getElementById("max-range-input").classList.remove("border-pink");
+}
 }
 
 // Function to count guess
@@ -203,6 +218,9 @@ function winnerCard() {
   </div>`;
   column2.insertAdjacentHTML("afterbegin", gameCard);
   }
+
+
+
 
 
 

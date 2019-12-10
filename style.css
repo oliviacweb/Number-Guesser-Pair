@@ -93,6 +93,31 @@ main {
   width: 235px;
 }
 
+.error-icon {
+  height: 10%;
+  width: 10%;
+  margin: 2% 2% 0% 0%;
+}
+
+.border-pink {
+  border: 2px solid #dd1972;
+}
+
+.error-message {
+  height: 30px;
+  width: 235px;
+  margin-left: 250px;
+  color: #dd1972;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
 label {
   font-size: 20px;
 }
