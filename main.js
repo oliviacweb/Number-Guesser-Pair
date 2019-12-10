@@ -5,7 +5,8 @@ var guessInputOne = document.querySelector("#guess-input-1");
 var guessInputTwo = document.querySelector("#guess-input-2");
 var winningName = null;
 var randomNumber = null;
-
+var guessCount = 0;
+var column2 = document.querySelector('.column2');
 
 nameInputOne.addEventListener('input', checkButtonStatus);
 nameInputTwo.addEventListener('input', checkButtonStatus);
@@ -78,6 +79,7 @@ var guessOneMessage = document.querySelector(".challenger-1-current-guess");
 var guessTwoMessage = document.querySelector(".challenger-2-current-guess");
 submitButton.addEventListener('click', submitHandler);
 
+// Submit button event handler
 function submitHandler() {
   displayInputs();
   challengerOneResults();
@@ -126,10 +128,15 @@ function updateRandomInteger () {
 var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
 var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
 
+// Function to count guess
+function challengerGuessCount() {
+  document.querySelector(".challenger-guess-count").innerHTML = guessCount;
+};
+
 // Functions for challenge winners
 
-
 function challengerOneResults() {
+  guessCount = guessCount + 2;
   if (guessInputOne.value > randomNumber) {
     challengerOneGuessResponse.innerHTML = "that's too high"
   } else if (guessInputOne.value < randomNumber) {
@@ -138,6 +145,7 @@ function challengerOneResults() {
     challengerOneGuessResponse.innerHTML = "BOOM!";
     winningName = nameInputOne.value;
     winnerCard();
+    challengerGuessCount();
   }
   challengerTwoResults();
 }
@@ -151,6 +159,7 @@ function challengerTwoResults() {
     challengerTwoGuessResponse.innerHTML = "BOOM!";
     winningName = nameInputTwo.value;
     winnerCard();
+    challengerGuessCount();
   }
 }
 
@@ -164,7 +173,7 @@ function resetGuessForm() {
   }
 }
 
-var column2 = document.querySelector('.column2');
+
 
 //Function to populate winner/game card
 
@@ -178,7 +187,7 @@ function winnerCard() {
       <p class="winner">winner</p>
     </section>
     <section class="game-card-info">
-      <p class="card-guess-num"><span>47</span> guesses</p>
+      <p class="card-guess-num"><span class="challenger-guess-count">47</span> guesses</p>
       <p class="card-time"><span>1</span> minute <span>35</span> second</p>
       <button class="close-card"><img id="x-button" src="https://image.flaticon.com/icons/svg/458/458595.svg" alt="x image for close button"> </button>
     </section>
