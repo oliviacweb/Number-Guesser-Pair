@@ -160,7 +160,9 @@ function challengerOneResults() {
     winningName = nameInputOne.value;
     winnerCard();
     challengerGuessCount();
-    updateRandomInteger();
+    resetGame();
+    enableUpdateButton();
+    // updateRandomInteger();
   }
     challengerTwoResults();
 }
@@ -176,7 +178,9 @@ function challengerTwoResults() {
     winningName = nameInputTwo.value;
     winnerCard();
     challengerGuessCount();
-    updateRandomInteger();
+    resetGame();
+    enableUpdateButton();
+    // updateRandomInteger();
   }
 }
 
