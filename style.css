@@ -5,10 +5,6 @@
   padding: 0;
   }
 
-.button-background-abled {
-  background-color: blue;
-}
-
 body {
     color: #606060
 }
@@ -126,7 +122,6 @@ label {
 .submit-guess {
   width: 230px;
   border-radius: 10px;
-  /*background-color: #6e6e6e;*/
   color: white;
 }
 
@@ -163,8 +158,6 @@ button:hover:enabled{
   display: flex;
   flex-direction: column;
 }
-
-
 
 .latest-guess-output {
   display: flex;
