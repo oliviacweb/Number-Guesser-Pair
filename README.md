@@ -8,6 +8,6 @@ In this game the players will first select a range of numbers they want to guess
 
 
 
-text: ![Screenshot of guesses](Screenshots/number-guesser-screenshot.png)
+![Screenshot of guesses](Screenshots/number-guesser-screenshot.png)
 
-text: ![Screenshot of winning cards](Screenshots/number-guesser-screenshot2.png)
+![Screenshot of winning cards](Screenshots/number-guesser-screenshot2.png)
