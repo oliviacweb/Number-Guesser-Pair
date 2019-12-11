@@ -28,7 +28,6 @@
               <label for="max-range">Max Range</label>
               <input id="max-range-input" type="number" name="max-range" />
             </div>
-
             <button type="button" class="update-button" disabled="disabled">UPDATE</button>
             <div class="error-message">
               <p id="max-error-message" class="hidden"><img src="./assets/error-icon.svg" alt="Error icon" class="error-icon" title="Error icon" />Must be less than min</p>
@@ -67,6 +66,9 @@
             <button type="button" disabled="disabled" class="submit-guess">SUBMIT GUESS</button>
             <button type="button" disabled="disabled" class="reset-game">RESET GAME</button>
             <button type="button" disabled="disabled" class="clear-form">CLEAR FORM</button>
+           </div>
+           <div class="submit-error-message">
+           <p class="submit-error-text hidden"><img src="./assets/error-icon.svg" alt="Error icon" class="error-icon" title="Error icon">Error: Guess must be within set range</p>
            </div>
         </section>
         <section class="latest-guess-output">
