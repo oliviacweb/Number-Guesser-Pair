@@ -177,7 +177,6 @@ function challengerOneResults() {
     challengerGuessCount();
     resetGame();
     enableUpdateButton();
-    // updateRandomInteger();
   }
     challengerTwoResults();
 }
@@ -195,7 +194,6 @@ function challengerTwoResults() {
     challengerGuessCount();
     resetGame();
     enableUpdateButton();
-    // updateRandomInteger();
   }
 }
 
@@ -213,15 +211,15 @@ function winnerCard() {
     <section class="game-card-info">
       <p class="card-guess-num"><span class="challenger-guess-count">47</span> guesses</p>
       <p class="card-time"><span>1</span> minute <span>35</span> second</p>
-      <button class="close-card"><img id="x-button" src="https://image.flaticon.com/icons/svg/458/458595.svg" alt="x image for close button"> </button>
+      <button class="close-card"><img class="close-card-image" src="https://image.flaticon.com/icons/svg/458/458595.svg" alt="x image for close button"> </button>
     </section>
   </div>`;
   column2.insertAdjacentHTML("afterbegin", gameCard);
+  var closeCardButton = document.querySelector('.close-card-image');
+  closeCardButton.addEventListener("click", closeCard);
+  function closeCard() {
+        event.target.parentElement.parentElement.parentElement.remove()
+    }
   }
-
-
-
-
-
 
 // fixing cursor issue
