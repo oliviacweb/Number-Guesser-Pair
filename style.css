@@ -317,15 +317,15 @@ button:hover:enabled{
   font-weight: bold;
 }
 
-button .close-card {
+button.close-card {
   background-color: #6e6e6e;
   width: 25px;
   height: 25px;
   border-radius: 50%;
 }
 
-#x-button {
-height: 11px;
+.close-card-image {
+height: 17px;
 padding-top: 3px;
 border-radius: 50%;
 }
