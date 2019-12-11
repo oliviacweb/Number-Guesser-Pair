@@ -1,30 +1,65 @@
 var submitButton = document.querySelector(".submit-guess");
+var updateButton = document.querySelector(".update-button");
+var clearButton = document.querySelector(".clear-form");
 var nameInputOne = document.querySelector("#name-input-1");
 var nameInputTwo = document.querySelector("#name-input-2");
 var guessInputOne = document.querySelector("#guess-input-1");
 var guessInputTwo = document.querySelector("#guess-input-2");
+var column2 = document.querySelector('.column2');
+var minRange = document.querySelector('#min-range-input');
+var maxRange = document.querySelector('#max-range-input');
+var resetButton = document.querySelector('.reset-game');
 var winningName = null;
 var randomNumber = null;
+var guessCount = 0;
 
+nameInputOne.addEventListener('input', inputHandler);
+nameInputTwo.addEventListener('input', inputHandler);
+guessInputOne.addEventListener('input', inputHandler);
+guessInputTwo.addEventListener('input', inputHandler);
+submitButton.addEventListener('click', submitHandler);
+updateButton.addEventListener('click', updateHandler);
+clearButton.addEventListener('click', clearContents);
+minRange.addEventListener('input', inputHandler);
+maxRange.addEventListener('input', inputHandler);
+maxRange.addEventListener('keyup', inputHandler);
+resetButton.addEventListener('click', resetGame);
 
-nameInputOne.addEventListener('input', checkButtonStatus);
-nameInputTwo.addEventListener('input', checkButtonStatus);
-guessInputOne.addEventListener('input', checkButtonStatus);
-guessInputTwo.addEventListener('input', checkButtonStatus);
+function resetButton() {
+  console.log('hi');
+}
+
+// Button Event Handlers below
+
+// Input field event handlers
+function inputHandler() {
+  enableClearForm();
+  enableSubmitButton();
+  enableResetButton();
+  enableUpdateButton();
+  displayMaxErrorMessage();
+}
+
+// Submit button event handler
+function submitHandler() {
+  displayInputs();
+  challengerOneResults();
+  clearGuesses();
+}
+
+// Update button event handler
+function updateHandler() {
+  inputRanges();
+  updateRandomInteger();
+}
 
 // Function to clear text in guess fields
 function clearGuesses() {
-guessInputOne.value = '', guessInputTwo.value = '';
+guessInputOne.value = '', guessInputTwo.value = '', submitButton.disabled = true;
 }
 
-// Function to clear all inputs in guess form
-
-// function clearGuessForm() {
-//   guessInputOne.value = '', guessInputTwo.value = '', nameInputOne.value = '', nameInputTwo.value = '';
-// }
-
-// Function to enable Submit Guess button when both name fields and guess fields are filled out
-function checkButtonStatus() {
+// Function to enable Submit Button
+function enableSubmitButton() {
   if (nameInputOne.value !='' && nameInputTwo.value !='' && guessInputOne.value !='' && guessInputTwo.value !='') {
     submitButton.disabled = false
   } else {
@@ -32,14 +67,15 @@ function checkButtonStatus() {
   }
 }
 
-// Function to enable update button if min and max range are filled in
-var minRange = document.querySelector('#min-range-input');
-var maxRange = document.querySelector('#max-range-input');
-var updateButton = document.querySelector('.update-button');
+function enableResetButton() {
+  if (nameInputOne.value !='' || nameInputTwo.value !='' || guessInputOne.value !='' || guessInputTwo.value !='' || minRange.value !='' || maxRange.value !='') {
+    resetButton.disabled = false
+  } else {
+    resetButton.disabled = true
+  }
+}
 
-minRange.addEventListener('input', enableUpdateButton);
-maxRange.addEventListener('input', enableUpdateButton);
-
+// Function to enable Update button
 function enableUpdateButton() {
   if (minRange.value !='' && maxRange.value !='') {
     updateButton.disabled = false
@@ -50,12 +86,6 @@ function enableUpdateButton() {
 
 // Function to enable Clear Form button when one of the four fields is filled out
 
-var clearButton = document.querySelector(".clear-form");
-nameInputOne.addEventListener('input', enableClearForm);
-nameInputTwo.addEventListener('input', enableClearForm);
-guessInputOne.addEventListener('input', enableClearForm);
-guessInputTwo.addEventListener('input', enableClearForm);
-
 function enableClearForm() {
   if (nameInputOne.value !='' || nameInputTwo.value !='' || guessInputOne.value !='' || guessInputTwo.value !='') {
     clearButton.disabled = false
@@ -64,27 +94,29 @@ function enableClearForm() {
   }
 }
 
+// Function to reset game
+
+function resetGame() {
+  clearContents();
+  minRange.value = '', maxRange.value = '', resetButton.disabled = true,
+  document.querySelector(".range-bottom").innerHTML = '';
+  document.querySelector(".range-top").innerHTML = '';
+}
+
 // Function to clear contents when Clear Form is clicked
-clearButton.addEventListener('click', clearContents);
+
 
 function clearContents() {
   nameInputOne.value = '', nameInputTwo.value = '', guessInputOne.value = '', guessInputTwo.value = '', clearButton.disabled = true, submitButton.disabled = true;
 }
 
 // Function to add Challenger and Guess input to Latest Guess form
-var nameOneMessage = document.querySelector(".name-1");
-var nameTwoMessage = document.querySelector(".name-2");
-var guessOneMessage = document.querySelector(".challenger-1-current-guess");
-var guessTwoMessage = document.querySelector(".challenger-2-current-guess");
-submitButton.addEventListener('click', submitHandler);
-
-function submitHandler() {
-  displayInputs();
-  challengerOneResults();
-  submitGuessForm();
-}
 
 function displayInputs() {
+  var nameOneMessage = document.querySelector(".name-1");
+  var nameTwoMessage = document.querySelector(".name-2");
+  var guessOneMessage = document.querySelector(".challenger-1-current-guess");
+  var guessTwoMessage = document.querySelector(".challenger-2-current-guess");
   var nameOne = nameInputOne.value;
   nameOneMessage.innerText = nameOne;
   var nameTwo = nameInputTwo.value;
@@ -96,40 +128,44 @@ function displayInputs() {
 }
 
   // Function to enter numbers from min and max range into current range
-  var updateButton = document.querySelector(".update-button");
-  var minRangeOutput = document.querySelector(".range-bottom");
-  var maxRangeOutput = document.querySelector(".range-top");
-  var minRangeInput = document.querySelector("#min-range-input");
-  var maxRangeInput = document.querySelector("#max-range-input");
 
-  updateButton.addEventListener('click', inputBottomRange);
-  updateButton.addEventListener('click', inputTopRange);
-
-  function inputBottomRange() {
-    minRangeOutput.innerHTML = minRangeInput.value;
-  }
-
-  function inputTopRange() {
-    maxRangeOutput.innerHTML = maxRangeInput.value
+  function inputRanges() {
+    document.querySelector(".range-bottom").innerHTML = minRange.value;
+    document.querySelector(".range-top").innerHTML = maxRange.value;
   }
 
 // Function to input range parameters into random number generator
 
-updateButton.addEventListener('click', updateRandomInteger);
-
-function updateRandomInteger () {
-  min = parseInt(minRangeInput.value);
-  max = parseInt(maxRangeInput.value);
+function updateRandomInteger() {
+  min = parseInt(minRange.value);
+  max = parseInt(maxRange.value);
   randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
-var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
+// Function to add max range error message
+
+function displayMaxErrorMessage() {
+if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+  document.getElementById("max-error-message").classList.replace("hidden", "visible");
+  document.getElementById("max-range-input").classList.add("border-pink");
+  updateButton.disabled = true;
+} else {
+  document.getElementById("max-error-message").classList.replace("visible", "hidden");
+  document.getElementById("max-range-input").classList.remove("border-pink");
+}
+}
+
+// Function to count guess
+function challengerGuessCount() {
+  document.querySelector(".challenger-guess-count").innerHTML = guessCount;
+  guessCount = 0;
+};
 
 // Functions for challenge winners
 
-
 function challengerOneResults() {
+  var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
+  guessCount = guessCount + 2;
   if (guessInputOne.value > randomNumber) {
     challengerOneGuessResponse.innerHTML = "that's too high"
   } else if (guessInputOne.value < randomNumber) {
@@ -138,11 +174,15 @@ function challengerOneResults() {
     challengerOneGuessResponse.innerHTML = "BOOM!";
     winningName = nameInputOne.value;
     winnerCard();
+    challengerGuessCount();
+    resetGame();
+    enableUpdateButton();
   }
-  challengerTwoResults();
+    challengerTwoResults();
 }
 
 function challengerTwoResults() {
+  var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
   if (guessInputTwo.value > randomNumber) {
     challengerTwoGuessResponse.innerHTML = "that's too high"
   } else if (guessInputTwo.value < randomNumber) {
@@ -151,20 +191,11 @@ function challengerTwoResults() {
     challengerTwoGuessResponse.innerHTML = "BOOM!";
     winningName = nameInputTwo.value;
     winnerCard();
+    challengerGuessCount();
+    resetGame();
+    enableUpdateButton();
   }
 }
-
-// Function to choose new random number when user submits a correct guess
-
-function resetGuessForm() {
-  if (guessInputOne.value == randomNumber || guessInputTwo.value == randomNumber) {
-       updateRandomInteger()
-  } else {
-     submitButton.disabled = true;
-  }
-}
-
-var column2 = document.querySelector('.column2');
 
 //Function to populate winner/game card
 
@@ -178,7 +209,7 @@ function winnerCard() {
       <p class="winner">winner</p>
     </section>
     <section class="game-card-info">
-      <p class="card-guess-num"><span>47</span> guesses</p>
+      <p class="card-guess-num"><span class="challenger-guess-count">47</span> guesses</p>
       <p class="card-time"><span>1</span> minute <span>35</span> second</p>
       <button class="close-card"><img class="close-card-image" src="https://image.flaticon.com/icons/svg/458/458595.svg" alt="x image for close button"> </button>
     </section>
@@ -190,15 +221,5 @@ function winnerCard() {
         event.target.parentElement.parentElement.parentElement.remove()
     }
   }
-
-  // var entireCard = document.querySelector('.game-card-info');
-  // entireCard.addEventListener("click", closeCard);
-  // function closeCard() {
-  //   if(event.target.classList.contains("close-card")) {
-  //     event.target.parentElement.parentElement.remove()
-  //   }
-  // }
-
-
 
 // fixing cursor issue
