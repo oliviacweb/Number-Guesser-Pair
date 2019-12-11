@@ -9,6 +9,12 @@ var column2 = document.querySelector('.column2');
 var minRange = document.querySelector('#min-range-input');
 var maxRange = document.querySelector('#max-range-input');
 var resetButton = document.querySelector('.reset-game');
+var nameOneMessage = document.querySelector(".name-1");
+var nameTwoMessage = document.querySelector(".name-2");
+var guessOneMessage = document.querySelector(".challenger-1-current-guess");
+var guessTwoMessage = document.querySelector(".challenger-2-current-guess");
+var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
+var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
 var winningName = null;
 var randomNumber = null;
 var guessCount = 0;
@@ -25,12 +31,6 @@ maxRange.addEventListener('input', inputHandler);
 maxRange.addEventListener('keyup', inputHandler);
 resetButton.addEventListener('click', resetGame);
 
-function resetButton() {
-  console.log('hi');
-}
-
-// Button Event Handlers below
-
 // Input field event handlers
 function inputHandler() {
   enableClearForm();
@@ -44,7 +44,7 @@ function inputHandler() {
 function submitHandler() {
   displayInputs();
   challengerOneResults();
-  clearGuesses();
+  displaySubmitErrorMessage();
 }
 
 // Update button event handler
@@ -58,7 +58,7 @@ function clearGuesses() {
 guessInputOne.value = '', guessInputTwo.value = '', submitButton.disabled = true;
 }
 
-// Function to enable Submit Button
+// Functions to enable buttons
 function enableSubmitButton() {
   if (nameInputOne.value !='' && nameInputTwo.value !='' && guessInputOne.value !='' && guessInputTwo.value !='') {
     submitButton.disabled = false
@@ -75,7 +75,6 @@ function enableResetButton() {
   }
 }
 
-// Function to enable Update button
 function enableUpdateButton() {
   if (minRange.value !='' && maxRange.value !='') {
     updateButton.disabled = false
@@ -83,8 +82,6 @@ function enableUpdateButton() {
     updateButton.disabled = true
   }
 }
-
-// Function to enable Clear Form button when one of the four fields is filled out
 
 function enableClearForm() {
   if (nameInputOne.value !='' || nameInputTwo.value !='' || guessInputOne.value !='' || guessInputTwo.value !='') {
@@ -95,7 +92,6 @@ function enableClearForm() {
 }
 
 // Function to reset game
-
 function resetGame() {
   clearContents();
   minRange.value = '', maxRange.value = '', resetButton.disabled = true,
@@ -104,19 +100,13 @@ function resetGame() {
 }
 
 // Function to clear contents when Clear Form is clicked
-
-
 function clearContents() {
   nameInputOne.value = '', nameInputTwo.value = '', guessInputOne.value = '', guessInputTwo.value = '', clearButton.disabled = true, submitButton.disabled = true;
 }
 
 // Function to add Challenger and Guess input to Latest Guess form
-
-function displayInputs() {
-  var nameOneMessage = document.querySelector(".name-1");
-  var nameTwoMessage = document.querySelector(".name-2");
-  var guessOneMessage = document.querySelector(".challenger-1-current-guess");
-  var guessTwoMessage = document.querySelector(".challenger-2-current-guess");
+function displayInputs(){
+  if(parseInt(guessInputOne.value) >= parseInt(minRange.value) && parseInt(guessInputOne.value) <= parseInt(maxRange.value) && parseInt(guessInputTwo.value) >= parseInt(minRange.value) && parseInt(guessInputTwo.value) <= parseInt(maxRange.value)) {
   var nameOne = nameInputOne.value;
   nameOneMessage.innerText = nameOne;
   var nameTwo = nameInputTwo.value;
@@ -125,46 +115,53 @@ function displayInputs() {
   guessOneMessage.innerText = guessOne;
   var guessTwo = guessInputTwo.value;
   guessTwoMessage.innerText = guessTwo;
+  clearGuesses();
+ }
 }
 
   // Function to enter numbers from min and max range into current range
-
   function inputRanges() {
     document.querySelector(".range-bottom").innerHTML = minRange.value;
     document.querySelector(".range-top").innerHTML = maxRange.value;
   }
 
 // Function to input range parameters into random number generator
-
 function updateRandomInteger() {
   min = parseInt(minRange.value);
   max = parseInt(maxRange.value);
   randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// Function to add max range error message
-
+// Function to populate max range error message
 function displayMaxErrorMessage() {
 if (parseInt(maxRange.value) < parseInt(minRange.value)) {
   document.getElementById("max-error-message").classList.replace("hidden", "visible");
-  document.getElementById("max-range-input").classList.add("border-pink");
+  maxRange.classList.add("border-pink");
   updateButton.disabled = true;
-} else {
+  } else {
   document.getElementById("max-error-message").classList.replace("visible", "hidden");
-  document.getElementById("max-range-input").classList.remove("border-pink");
-}
+  maxRange.classList.remove("border-pink");
+  }
 }
 
-// Function to count guess
+// Function to populate error message if guesses are out of range
+function displaySubmitErrorMessage() {
+  if(parseInt(guessInputOne.value) < parseInt(minRange.value) || parseInt(guessInputOne.value) > parseInt(maxRange.value) || parseInt(guessInputTwo.value) < parseInt(minRange.value) || parseInt(guessInputTwo.value) > parseInt(maxRange.value)) {
+    document.querySelector(".submit-error-text").classList.replace("hidden", "visible");
+    guessOneMessage.innerText = '', guessTwoMessage.innerText = '';
+    challengerOneGuessResponse.innerHTML = 'Guess again!',
+    challengerTwoGuessResponse.innerHTML = 'Guess again!';
+  }
+}
+
+// Function to count guesses
 function challengerGuessCount() {
   document.querySelector(".challenger-guess-count").innerHTML = guessCount;
   guessCount = 0;
 };
 
 // Functions for challenge winners
-
 function challengerOneResults() {
-  var challengerOneGuessResponse = document.querySelector('.challenger-1-hint');
   guessCount = guessCount + 2;
   if (guessInputOne.value > randomNumber) {
     challengerOneGuessResponse.innerHTML = "that's too high"
@@ -182,7 +179,6 @@ function challengerOneResults() {
 }
 
 function challengerTwoResults() {
-  var challengerTwoGuessResponse = document.querySelector('.challenger-2-hint');
   if (guessInputTwo.value > randomNumber) {
     challengerTwoGuessResponse.innerHTML = "that's too high"
   } else if (guessInputTwo.value < randomNumber) {
@@ -198,7 +194,6 @@ function challengerTwoResults() {
 }
 
 //Function to populate winner/game card
-
 function winnerCard() {
   var gameCard = `<div class="winner-card">
     <section class="card-title">
@@ -221,5 +216,3 @@ function winnerCard() {
         event.target.parentElement.parentElement.parentElement.remove()
     }
   }
-
-// fixing cursor issue
