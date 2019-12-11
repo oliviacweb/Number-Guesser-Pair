@@ -8,4 +8,6 @@ Group Member Names: Olivia Webster and Megan Venetianer
 
 
 
-text: ![alt test](Screenshots/number-guesser-screenshot.png)
+text: ![Screenshot of guesses](Screenshots/number-guesser-screenshot.png)
+
+text: ![Screenshot of winning cards](Screenshots/number-guesser-screenshot2.png)
