@@ -353,6 +353,7 @@ button.close-card {
 height: 17px;
 padding-top: 3px;
 border-radius: 50%;
+pointer-events: none;
 }
 
 .card-time {

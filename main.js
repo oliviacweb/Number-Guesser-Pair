@@ -215,10 +215,10 @@ function winnerCard() {
     </section>
   </div>`;
   column2.insertAdjacentHTML("afterbegin", gameCard);
-  var closeCardButton = document.querySelector('.close-card-image');
+  var closeCardButton = document.querySelector('.close-card');
   closeCardButton.addEventListener("click", closeCard);
   function closeCard() {
-        event.target.parentElement.parentElement.parentElement.remove()
+        event.target.parentElement.parentElement.remove()
     }
   }
 
