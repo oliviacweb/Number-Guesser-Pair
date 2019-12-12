@@ -43,7 +43,6 @@ function inputHandler() {
 // Submit button event handler
 function submitHandler() {
   displayInputs();
-  challengerOneResults();
   displaySubmitErrorMessage();
 }
 
@@ -115,6 +114,7 @@ function displayInputs(){
   guessOneMessage.innerText = guessOne;
   var guessTwo = guessInputTwo.value;
   guessTwoMessage.innerText = guessTwo;
+  challengerOneResults();
   clearGuesses();
  }
 }
@@ -164,9 +164,9 @@ function challengerGuessCount() {
 function challengerOneResults() {
   guessCount = guessCount + 2;
   if (guessInputOne.value > randomNumber) {
-    challengerOneGuessResponse.innerHTML = "that's too high"
+    challengerOneGuessResponse.innerHTML = "that's too high";
   } else if (guessInputOne.value < randomNumber) {
-    challengerOneGuessResponse.innerHTML = "that's too low"
+    challengerOneGuessResponse.innerHTML = "that's too low";
   } else {
     challengerOneGuessResponse.innerHTML = "BOOM!";
     winningName = nameInputOne.value;
@@ -180,9 +180,9 @@ function challengerOneResults() {
 
 function challengerTwoResults() {
   if (guessInputTwo.value > randomNumber) {
-    challengerTwoGuessResponse.innerHTML = "that's too high"
+    challengerTwoGuessResponse.innerHTML = "that's too high";
   } else if (guessInputTwo.value < randomNumber) {
-    challengerTwoGuessResponse.innerHTML = "that's too low"
+    challengerTwoGuessResponse.innerHTML = "that's too low";
   } else {
     challengerTwoGuessResponse.innerHTML = "BOOM!";
     winningName = nameInputTwo.value;
